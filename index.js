@@ -1,4 +1,5 @@
 var express =  require("express");
+var listsRouter=require("./routes/emps")
 var empsRouter = require("./routes/emps");
 var adminRouter = require("./routes/admin");
 var config = require("config");
@@ -13,6 +14,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use("/lists", listsRouter);
 app.use("/emps", empsRouter);
 app.use("/admin", adminRouter);
 
